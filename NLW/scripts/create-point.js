@@ -38,3 +38,44 @@ function populateUFs() {
         .querySelector("select[name=uf]")
         .addEventListener("change", getCities)
         
+
+const itemsToCollect = document.querySelectorAll(".items-grid li")
+
+for (const item of itemsToCollect) {
+    item.addEventListener("click", handleSelectedItem)
+}
+
+const collectedItems =  document.querySelector("input[name=items]")
+
+let selectedItems = []
+
+function handleSelectedItem(event){
+    const itemLi = event.target
+
+
+    itemLi.classList.toggle("selected")
+
+    const itemId = itemLi.dataset.id
+
+    const alreadySelected  = selectedItems.findIndex( item => { item == itemId
+    return itemFound }
+)
+
+if (alreadySelected >= 0 ) {
+    const filteresItems = selectedItems.filter( item => {
+        const itemIsDifferent = item != itemId
+        return itemsDifferent
+    })
+
+    selectedItems = filteredItems
+
+} else {
+    selectedItems.push(items)
+}
+
+    collectedItems.value = selectedItems
+
+}
+
+
+
