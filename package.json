@@ -1,9 +1,12 @@
 {
   "name": "e-coleta",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node NLW/src/server.js"
   },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
