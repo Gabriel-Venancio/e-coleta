@@ -1,9 +1,15 @@
 const express = require("express")
 const server = express()
 
+server.use(express.static("NLW/public"))
+
 
 server.get("/", (req, res) =>{
-    res.send("Cheguei aqui")
+    res.sendFile(__dirname + "/views/index.html")
+})
+
+server.get("/create-point", (req, res) =>{
+    res.sendFile(__dirname + "/views/create-point.html")
 })
 
 server.listen(3000)
