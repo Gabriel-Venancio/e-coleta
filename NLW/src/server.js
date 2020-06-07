@@ -1,6 +1,8 @@
 const express = require("express")
 const server = express()
 
+const db = require("./database/db")
+
 server.use(express.static("NLW/public"))
 
 
@@ -20,7 +22,17 @@ server.get("/create-point", (req, res) =>{
 })
 
 server.get("/search", (req, res) =>{
-    return res.render(__dirname + "/views/search-results.html")
+
+    db.all(`SELECT * FROM places`, function(err, rows){
+                if(err) {
+                    return console.log(err)
+                } 
+
+                const total = rows.length
+
+                return res.render(__dirname + "/views/search-results.html", { places: rows, total: total })
+            }) 
+    
 })
 
 server.listen(3000)
